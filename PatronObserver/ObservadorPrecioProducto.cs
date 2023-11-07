@@ -7,7 +7,7 @@ using System.Threading.Tasks;
 namespace PatronObserver
 {
     public class ObservadorPrecioProducto : IObservadorProducto
-    {
+{
         public void Actualizar(ArgumentosObservadorProducto args)
         {
             if (args.NuevoPrecio.GetValueOrDefault() >= args.PrecioAnterior.GetValueOrDefault()) return;

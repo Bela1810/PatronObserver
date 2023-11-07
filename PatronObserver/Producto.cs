@@ -17,7 +17,7 @@ namespace PatronObserver
             var stockAnterior = Stock;
             Stock = stock;
 
-            Notificar(new ArgumentosObservadorProducto
+            NotificarObservadores(new ArgumentosObservadorProducto
             {
                 Id = Id,
                 StockAnterior = stockAnterior,
@@ -30,7 +30,7 @@ namespace PatronObserver
             var precioAnterior = Precio;
             Precio = precio;
 
-            Notificar(new ArgumentosObservadorProducto
+            NotificarObservadores(new ArgumentosObservadorProducto
             {
                 Id = Id,
                 PrecioAnterior = precioAnterior,

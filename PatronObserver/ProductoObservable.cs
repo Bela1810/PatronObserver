@@ -6,26 +6,29 @@ using System.Threading.Tasks;
 
 namespace PatronObserver
 {
-    public class ProductoObservable
+    public abstract class ProductoObservable : IObservableProducto
     {
-        private List<IObservadorProducto> Observadores { get; set; } = new();
+        private readonly List<IObservadorProducto> _observadores = new List<IObservadorProducto>();
 
         public void AgregarObservador(IObservadorProducto observador)
         {
-            Observadores.Add(observador);
+            _observadores.Add(observador);
         }
 
         public void QuitarObservador(IObservadorProducto observador)
         {
-            Observadores.Remove(observador);
+            _observadores.Remove(observador);
         }
 
-        protected void Notificar(ArgumentosObservadorProducto args)
+        public void NotificarObservadores(ArgumentosObservadorProducto args)
         {
-            foreach (var observador in Observadores)
+            foreach (var observador in _observadores)
             {
                 observador.Actualizar(args);
             }
         }
     }
+
+
+
 }
